@@ -32,7 +32,7 @@ Things you may want to cover:
 | ---------------- | ------ | ----------- |
 | nickname         | string | null: false |
 | email            | string | null: false |
-| user_password    | string | null: false |
+| password         | string | null: false |
 | family_name      | string | null: false |
 | first_name       | string | null: false |
 | family_name_kana | string | null: false |
@@ -42,16 +42,16 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_one :order
+- has_many :orders
 
 ## items テーブル
 
 | Column      | Type       | Options                        |
 | ----------- | ---------- | ------------------------------ |
-| user_id     | references | null: false, foreign_key: true |
+| user        | references | null: false, foreign_key: true |
 | name        | string     | null: false                    |
-| price       | string     | null: false                    |
-| description | string     | null: false                    |
+| price       | integer    | null: false                    |
+| description | text       | null: false                    |
 | burden      | integer    | null: false                    |
 | days        | integer    | null: false                    |
 | prefecture  | integer    | null: false                    |
@@ -61,9 +61,9 @@ Things you may want to cover:
 ## Association
 
 - belongs_to :user
-- has_one :order
+- has_one :orders
 
-## purchase テーブル
+## purchases テーブル
 
 | Column       | Type       | Option                         |
 | ------------ | ---------- | ------------------------------ |
@@ -77,9 +77,9 @@ Things you may want to cover:
 
 ## Association
 
-- has_one :order
+- has_one :orders
 
-## order テーブル
+## orders テーブル
 
 | Column | Type       | Option                         |
 | ------ | ---------- | ------------------------------ |
