@@ -61,7 +61,7 @@ Things you may want to cover:
 ## Association
 
 - belongs_to :user
-- has_one :orders
+- has_one :order
 
 ## purchases テーブル
 
@@ -77,7 +77,7 @@ Things you may want to cover:
 
 ## Association
 
-- has_one :orders
+- has_one :order
 
 ## orders テーブル
 
