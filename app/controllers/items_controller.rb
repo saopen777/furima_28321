@@ -1,5 +1,10 @@
 class ItemsController < ApplicationController
-  def index
+  before_action :authenticate_with_http_digest
 
+  def index
   end
+
+  def show
+  end
+
 end
