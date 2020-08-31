@@ -36,6 +36,12 @@ require 'rails_helper'
       expect(@item.errors.full_messages).to include("Price must be greater than or equal to 300")
     end
 
+    it "priceが9999999円以上だと登録できない" do
+      @item.price = "99999999"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price must be less than or equal to 9999999")
+    end
+
     it "priceが空だとうまくいかない" do
       @item.price = nil
       @item.valid?
