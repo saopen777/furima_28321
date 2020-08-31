@@ -38,12 +38,11 @@ ActiveRecord::Schema.define(version: 2020_08_28_082036) do
     t.string "name", null: false
     t.integer "price", null: false
     t.text "description", null: false
-    t.integer "burden", null: false
-    t.integer "days", null: false
-    t.integer "prefecture", null: false
-    t.integer "category", null: false
-    t.integer "condition", null: false
-    t.text "memo"
+    t.integer "burden_id", null: false
+    t.integer "days_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "category_id", null: false
+    t.integer "condition_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
