@@ -12,7 +12,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   #空の投稿を保存できないようにする
-  validates :burden, :category, :condition, :days, :prefecture, :image, presence: true
+  validates :name, :description, :price, :burden, :category, :condition, :days, :prefecture, :image, presence: true
 
   #ジャンルの選択が「--」の時は保存できないようにする
   with_options numericality: { other_than: 1 } do
@@ -24,4 +24,5 @@ class Item < ApplicationRecord
   end
 
   validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
+
 end
