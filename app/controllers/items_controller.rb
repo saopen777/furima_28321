@@ -7,10 +7,6 @@ class ItemsController < ApplicationController
   def show
   end
 
-  def edit
-    @item = Item.find(params[:id])
-  end
-
   def new
     @item = Item.new
   end
@@ -24,6 +20,10 @@ class ItemsController < ApplicationController
       render 'new'
     end
   end
+
+  # def get
+  #   @item = Item.new
+  # end
 
   private
   def item_params
