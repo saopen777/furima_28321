@@ -48,6 +48,12 @@ require 'rails_helper'
       expect(@item.errors.full_messages).to include("Price can't be blank")
     end
 
+    it "priceが半角数字以外だとうまくいかない" do
+      @item.price = "１２３４"
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Price is not a number")
+    end
+
     it "burdenが選択されていないと登録できない" do
       @item.burden_id = "1"
       @item.valid?
