@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_with_http_digest
 
   def index
-#    @image = Image.all
-    @items = Item.all
+    @items = Item.all.order("created_at DESC")
+
   end
 
   def show
@@ -22,12 +22,6 @@ class ItemsController < ApplicationController
       render 'new'
     end
   end
-
-
-  # def done
-  #   @item = Product.find(params[:id])
-  #   @item.update( item_id: current_user.id )
-  # end
 
 
   private
