@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
   before_action :authenticate_with_http_digest
 
   def index
+    @items = Item.all.order("created_at DESC")
+
   end
 
   def show
@@ -24,6 +26,6 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:name, :price, :description, :burden_id, :days_id, :prefecture_id, :category_id, :condition_id, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:name, :price, :description, :burden_id, :days_id, :prefecture_id, :category_id, :condition_id, :content, :image).merge(user_id: current_user.id)
   end
 end
