@@ -1,6 +1,6 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!
-  before_action :corrent_user, only: [:edit, :update]
+  before_action :item_user
 
   def index
     @item = Item.find(params[:item_id])
@@ -20,12 +20,11 @@ class PurchasesController < ApplicationController
     end
   end
 
-  def corrent_user
-    @purchase = current_user.purchase.find_by(id: params[:id])
-      unless @purchase
-        redirect_to root_url
-      end
+  def item_user
+    @item = Item.find(params[:item_id])
+    redirect_to root_path if @item.user_id == current_user.id
   end
+
 
   private
 
